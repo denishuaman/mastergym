@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase';
+import { auth, User } from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +9,14 @@ import { auth } from 'firebase';
 })
 export class AppComponent {
   title = 'mastergym';
-
+  usuario: User;
+  cargando: boolean = true;
   constructor(private afAuth: AngularFireAuth) {
-    this.afAuth.user.subscribe((usuario)=>{
-      console.log(usuario);
+    this.afAuth.user.subscribe((usuario) => {
+      setTimeout(() => {
+        this.cargando = false;
+        this.usuario = usuario;
+      }, 1000);
     });
   }
 
