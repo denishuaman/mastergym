@@ -23,6 +23,7 @@
     "bootstrap": "^4.4.1",
     "firebase": "^7.6.1",
     "ngx-bootstrap": "^5.2.0",
+    "ngx-spinner": "^8.1.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
