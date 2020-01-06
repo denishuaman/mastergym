@@ -9,6 +9,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class LoginComponent implements OnInit {
   formularioLogin: FormGroup;
+  datosCorrectos: boolean = true;
+  textoError: string = '';
   constructor(private creadorFormulario: FormBuilder, private afAuth: AngularFireAuth) { }
 
   ngOnInit() {
@@ -21,10 +23,19 @@ export class LoginComponent implements OnInit {
   }
 
   ingresar() {
-    this.afAuth.auth.signInWithEmailAndPassword(this.formularioLogin.value.email, this.formularioLogin.value.password)
-      .then((usuario) => {
-        console.log(usuario);
-      })
+    if (this.formularioLogin.valid) {
+      this.datosCorrectos = true;
+      this.afAuth.auth.signInWithEmailAndPassword(this.formularioLogin.value.email, this.formularioLogin.value.password)
+        .then((usuario) => {
+          console.log(usuario);
+        }).catch((error)=>{
+          this.datosCorrectos = false;
+          this.textoError = error.message;
+        });
+    } else {
+      this.datosCorrectos = false;
+      this.textoError = 'Por favor revisa que los datos estén correctos';
+    }
   }
 
 }
