@@ -14,14 +14,14 @@
                 <a class="nav-link" href="#">Ver inscripciones<span class="sr-only"></span></a>
             </li>
             <li class="nav-item dropdown" dropdown>
-                <a class="nav-link dropdown-toggle" dropdownToggle href="#" id="navbarDropdown" role="button"
+                <a class="nav-link dropdown-toggle" dropdownToggle id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Clientes
                 </a>
                 <div class="dropdown-menu" *dropdownMenu aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Agregar</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Ver clientes</a>
+                    <a class="dropdown-item" routerLink="/listado-clientes">Ver clientes</a>
                 </div>
             </li>
             <li class="nav-item dropdown" dropdown>
@@ -53,4 +53,6 @@
             </li>
         </ul>
     </div>
+
+    <button class="btn btn-danger" (click)="logout()">Salir</button>
 </nav>

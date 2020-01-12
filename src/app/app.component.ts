@@ -19,12 +19,4 @@ export class AppComponent {
       // }, 2000);
     });
   }
-
-  login() {
-    this.afAuth.auth.signInWithEmailAndPassword('denishuamanacu@gmail.com', '123456789');
-  }
-
-  logout() {
-    this.afAuth.auth.signOut();
-  }
 }

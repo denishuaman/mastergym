@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <h4>Listado de clientes</h4>
+
+    <form>
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Busque un cliente">
+        </div>
+    </form>
+
+    <div class="row">
+        <div class="col-sm-3" *ngFor="let cliente of clientes">
+            <div class="card">
+                <img [src]="cliente.imgUrl" class="card-img-top imgCliente">
+                <div class="card-body">
+                    <h5 class="card-title">{{cliente.nombres}} {{cliente.apellidos}}</h5>
+                    <a href="#" class="card-link">Editar</a>
+                    <a href="#" class="card-link text-danger">Desactivar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
